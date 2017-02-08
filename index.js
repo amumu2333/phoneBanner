@@ -1,21 +1,21 @@
 
 
 
-let cw = document.documentElement.clientWidth,
+var cw = document.documentElement.clientWidth,
     ch = document.documentElement.clientHeight;
 //获取页面的宽和高
 
 (function () {
   //获取按钮
-  let btns = document.querySelector('.btns'),
+  var btns = document.querySelector('.btns'),
       btn = btns.querySelectorAll('.btn');
   //获取banner图片
-  let container = document.querySelector('div.container'),
+  var container = document.querySelector('div.container'),
       box = container.querySelector('.box'),
       item = box.querySelectorAll('.item'),
       len = item.length;
   //索引
-  let index = 0,
+  var index = 0,
       translateX = 0;
 
   //确定某些不确定的尺寸
@@ -37,8 +37,8 @@ let cw = document.documentElement.clientWidth,
   };
 
   //图片的触摸事件
-  let x0,x1,xx,t0,t1,tt;//touch相关的参数
-  let t;//时间函数,自动轮播
+  var x0,x1,xx,t0,t1,tt;//touch相关的参数
+  var t;//时间函数,自动轮播
   box.addEventListener("touchstart",function start(e) {
       clearInterval(t);
       x0 = e.targetTouches[0].clientX;
@@ -66,7 +66,7 @@ let cw = document.documentElement.clientWidth,
   function end(e) {
       t1 = e.timeStamp;
       tt = t1 - t0;
-      let xx2 = e.changedTouches[0].clientX - x0;
+      var xx2 = e.changedTouches[0].clientX - x0;
       box.style.transitionDuration = ".4s";
       console.log(xx);
       if (Math.abs(xx)>cw/2 || (tt<500&&xx2>50)) {
